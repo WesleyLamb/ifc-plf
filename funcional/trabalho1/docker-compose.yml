@@ -42,6 +42,7 @@ services:
     networks:
       plf:
     working_dir: /app
+    restart: always
     command: "racket server.rkt"
 volumes:
   db:

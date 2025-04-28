@@ -10,6 +10,7 @@ CREATE TABLE public.estatisticas (
 	id int4 DEFAULT nextval('estatisticas_sequence'::regclass) NOT NULL,
 	nome varchar(100) COLLATE "pt-BR-x-icu" NOT NULL,
 	email varchar(100) COLLATE "pt-BR-x-icu" NOT NULL,
+	aplicacao varchar(100) NOT NULL,
 	nota1 int4 NOT NULL,
 	nota2 int4 NOT NULL,
 	nota3 int4 NOT NULL,
