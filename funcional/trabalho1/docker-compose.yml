@@ -1,0 +1,49 @@
+services:
+  nginx:
+    depends_on:
+      - app
+    image: nginx:alpine
+    container_name: plf.nginx
+    tty: true
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./app:/app
+    working_dir: /app
+    ports:
+      - 9001:80
+    networks:
+      plf:
+  db:
+    image: postgres
+    container_name: plf.db
+    tty: true
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+    ports:
+      - "5437:5432"
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      plf:
+  app:
+    image: racket/racket:8.9-full
+    container_name: plf.app
+    tty: true
+    env_file:
+      - ./.env
+    volumes:
+      - ./app:/app
+    networks:
+      plf:
+    working_dir: /app
+    command: "racket server.rkt"
+volumes:
+  db:
+    driver: local
+
+networks:
+  plf:
+    driver: bridge

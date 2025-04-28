@@ -1,0 +1,23 @@
+CREATE SEQUENCE public.estatisticas_sequence
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+CREATE TABLE public.estatisticas (
+	id int4 DEFAULT nextval('estatisticas_sequence'::regclass) NOT NULL,
+	nome varchar(100) COLLATE "pt-BR-x-icu" NOT NULL,
+	email varchar(100) COLLATE "pt-BR-x-icu" NOT NULL,
+	nota1 int4 NOT NULL,
+	nota2 int4 NOT NULL,
+	nota3 int4 NOT NULL,
+	nota4 int4 NOT NULL,
+	nota5 int4 NOT NULL,
+	nota6 int4 NOT NULL,
+	nota7 int4 NOT NULL,
+	nota8 int4 NOT NULL,
+	created_at timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CONSTRAINT estatisticas_pk PRIMARY KEY (id)
+);
