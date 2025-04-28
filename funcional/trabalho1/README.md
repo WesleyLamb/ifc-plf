@@ -1,6 +1,15 @@
 # Formulário de pesquisas sobre a IHC do Dr. Racket
 
 A proposta deste projeto é o desenvolvimento de uma ferramenta em Racket onde deverão ser armazenadas pesquisas sobre a aplicação das 8 Regras de Ouro de Ben Shneiderman no Dr. Racket, uma IDE utilizada para o desenvolvimento em Racket.
+As 8 regras são:
+1. Manter a consistência
+2. Permitir atalhos aos utilizadores frequentes
+3. Oferecer feedback informativo
+4. Interações com princípio, meio e fim
+5. Oferecer prevenção e recuperação de erros
+6. Permitir desfazer alterações
+7. Sensação de controle
+8. Reduzir a carga na memória de curta-duração
 
 ## Ferramentas utilizadas
 
