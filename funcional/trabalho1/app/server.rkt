@@ -34,7 +34,7 @@
 (define (buscar-pesquisas)
   (query-rows pgc "SELECT * FROM estatisticas ORDER BY created_at DESC"))
 (define (estatizar-pesquisas)
-  (query-rows pgc "SELECT avg(nota1) nota1, avg(nota2) nota2, avg(nota3) nota3, avg(nota4) nota4, avg(nota5) nota5, avg(nota6) nota6, avg(nota7) nota7, avg(nota8) nota8 FROM estatisticas"))
+  (query-rows pgc "SELECT coalesce(avg(nota1), 0) nota1, coalesce(avg(nota2), 0) nota2, coalesce(avg(nota3), 0) nota3, coalesce(avg(nota4), 0) nota4, coalesce(avg(nota5), 0) nota5, coalesce(avg(nota6), 0) nota6, coalesce(avg(nota7), 0) nota7, coalesce(avg(nota8), 0) nota8 FROM estatisticas"))
 
 (define (gerar-linhas pesquisa-list)
   (for/list ([reg pesquisa-list])

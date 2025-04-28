@@ -30,6 +30,8 @@ services:
     networks:
       plf:
   app:
+    depends_on:
+      - db
     image: racket/racket:8.9-full
     container_name: plf.app
     tty: true
